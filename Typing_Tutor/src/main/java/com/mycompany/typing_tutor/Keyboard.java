@@ -13,5 +13,10 @@ import javafx.scene.layout.GridPane;
 public class Keyboard {
     private GridPane keyboard;
     
-    
+    /**
+     * Returns a GridPane representing a keyboard.
+     */
+    public GridPane Keyboard() {
+        return keyboard; 
+    }   
 }
