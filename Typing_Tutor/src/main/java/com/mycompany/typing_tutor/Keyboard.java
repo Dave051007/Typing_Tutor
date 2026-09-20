@@ -5,6 +5,7 @@
 package com.mycompany.typing_tutor;
 
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -17,8 +18,8 @@ public class Keyboard {
     public Keyboard() {
         this.keyboard = new GridPane();     // create new gridPane
         keyboard.setAlignment(Pos.CENTER);
-        keyboard.setHgap(1);
-        keyboard.setVgap(1);
+        keyboard.setHgap(5);
+        keyboard.setVgap(5);
         
         createKeyboard();
     }
@@ -27,13 +28,30 @@ public class Keyboard {
      * Adds elements to the keyboard field.
      */
     private void createKeyboard() {
+        String[] keys = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "<----",     // row0
+        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"                          // row1
+        };
         
+        int column = 0;
+        int row = 1;
+        for (String key : keys) {
+            Button button = new Button(key);
+            
+            keyboard.add(button, column, row);
+            
+            column++;
+            
+            if ((row == 0 && column == 13) || (row == 1 && column == 13)) {
+                row++;
+                column = 0;
+            }
+        }
     }
     
     /**
      * Returns a GridPane representing a keyboard.
      */
-    public GridPane Keyboard() {
+    public GridPane getKeyboard() {
         return keyboard; 
     }   
 }
