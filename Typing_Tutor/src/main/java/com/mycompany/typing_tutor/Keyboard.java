@@ -29,11 +29,13 @@ public class Keyboard {
      */
     private void createKeyboard() {
         String[] keys = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "<----",     // row0
-        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"                          // row1
+        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\",                          // row1
+        "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "ENTER",                         //row2
+        "SHIFT", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "SHIFT",                     //row3
         };
         
         int column = 0;
-        int row = 1;
+        int row = 0;
         for (String key : keys) {
             Button button = new Button(key);
             
@@ -41,7 +43,11 @@ public class Keyboard {
             
             column++;
             
-            if ((row == 0 && column == 13) || (row == 1 && column == 13)) {
+            if ((row == 0 && column == 13) || 
+                (row == 1 && column == 13) ||
+                (row == 2 && column == 12) ||
+                (row == 3 && column == 12))
+            {
                 row++;
                 column = 0;
             }
