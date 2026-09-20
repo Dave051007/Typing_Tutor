@@ -4,6 +4,7 @@
  */
 package com.mycompany.typing_tutor;
 
+import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -12,6 +13,11 @@ import javafx.scene.layout.GridPane;
  */
 public class Keyboard {
     private GridPane keyboard;
+    
+    public Keyboard() {
+        this.keyboard = new GridPane();     // create new gridPane
+        keyboard.setAlignment(Pos.CENTER);
+    }
     
     /**
      * Returns a GridPane representing a keyboard.
