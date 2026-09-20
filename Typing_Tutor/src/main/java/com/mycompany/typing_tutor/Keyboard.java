@@ -4,10 +4,14 @@
  */
 package com.mycompany.typing_tutor;
 
+import javafx.scene.layout.GridPane;
+
 /**
  *
  * @author Admin
  */
 public class Keyboard {
+    private GridPane keyboard;
+    
     
 }
