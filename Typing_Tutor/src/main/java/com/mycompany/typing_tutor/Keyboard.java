@@ -17,6 +17,17 @@ public class Keyboard {
     public Keyboard() {
         this.keyboard = new GridPane();     // create new gridPane
         keyboard.setAlignment(Pos.CENTER);
+        keyboard.setHgap(1);
+        keyboard.setVgap(1);
+        
+        createKeyboard();
+    }
+    
+    /**
+     * Adds elements to the keyboard field.
+     */
+    private void createKeyboard() {
+        
     }
     
     /**
