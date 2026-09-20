@@ -28,7 +28,7 @@ public class Keyboard {
      * Adds elements to the keyboard field.
      */
     private void createKeyboard() {
-        String[] keys = {"`\", 1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "<----",     // row0
+        String[] keys = {"`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "<----",     // row0
         "TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\",                          // row1
         "CAPS LOCK","A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "ENTER",                         //row2
         "SHIFT", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "SHIFT",                     //row3
@@ -38,6 +38,7 @@ public class Keyboard {
         int row = 0;
         for (String key : keys) {
             Button button = new Button(key);
+            button.setPrefSize(50, 50);
             
             keyboard.add(button, column, row);
             
