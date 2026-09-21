@@ -4,6 +4,7 @@
  */
 package com.mycompany.typing_tutor;
 
+import java.util.ArrayList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -16,6 +17,7 @@ import javafx.scene.layout.VBox;
  */
 public class Keyboard {
     private VBox keyboard;
+    private ArrayList<Key> keys;
     
     public Keyboard() {
         this.keyboard = new VBox(5);     // create new VBox
@@ -96,7 +98,6 @@ public class Keyboard {
         HBox row5 = createRow(row5Keys);
         
         keyboard.getChildren().addAll(row1, row2, row3, row4, row5);
-        
     }
     /**
      * Creates a row of buttons(keys).
