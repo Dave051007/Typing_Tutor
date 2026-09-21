@@ -4,10 +4,14 @@
  */
 package com.mycompany.typing_tutor;
 
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+
 /**
  *
  * @author Admin
  */
 public class Key {
-    
+    private KeyCode keyCode;
+    private Button button;
 }
