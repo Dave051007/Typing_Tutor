@@ -142,7 +142,7 @@ public class Keyboard {
             button.setPrefSize(width, 50);
             
             // key creation + adding to keys
-            KeyCode keyCode = KeyCode.getKeyCode(keyText);      
+            KeyCode keyCode = getKeyCode(keyText);      
             Key key = new Key(keyCode, button);                 
             keys.add(key);                                      
             
@@ -150,6 +150,77 @@ public class Keyboard {
         }
         
         return result;    
+    }
+    /**
+     * Gets the KeyCode of special keys and alphabetical keys.
+     * @param keyText the text displayed on the keyboard key
+     * @return the KeyCode corresponding to the given key text
+     */
+    private KeyCode getKeyCode(String keyText) {
+        switch (keyText) {
+            case "<----":
+                return KeyCode.BACK_SPACE;
+
+            case "CAPS LOCK":
+                return KeyCode.CAPS;
+
+            case "SPACE":
+                return KeyCode.SPACE;
+
+            case "TAB":
+                return KeyCode.TAB;
+
+            case "ENTER":
+                return KeyCode.ENTER;
+
+            case "SHIFT":
+                return KeyCode.SHIFT;
+
+            case "CTRL":
+                return KeyCode.CONTROL;
+
+            case "ALT":
+                return KeyCode.ALT;
+
+            case "CMD":
+                return KeyCode.META;
+
+            case "\\":
+                return KeyCode.BACK_SLASH;
+
+            case "[":
+                return KeyCode.OPEN_BRACKET;
+
+            case "]":
+                return KeyCode.CLOSE_BRACKET;
+
+            case ";":
+                return KeyCode.SEMICOLON;
+
+            case "'":
+                return KeyCode.QUOTE;
+
+            case ",":
+                return KeyCode.COMMA;
+
+            case ".":
+                return KeyCode.PERIOD;
+
+            case "/":
+                return KeyCode.SLASH;
+
+            case "-":
+                return KeyCode.MINUS;
+
+            case "=":
+                return KeyCode.EQUALS;
+
+            case "`":
+                return KeyCode.BACK_QUOTE;
+
+            default:
+                return KeyCode.getKeyCode(keyText);
+        }
     }
     
     /**
