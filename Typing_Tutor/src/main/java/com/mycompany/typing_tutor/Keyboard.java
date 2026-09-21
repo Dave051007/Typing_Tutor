@@ -7,6 +7,7 @@ package com.mycompany.typing_tutor;
 import java.util.ArrayList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -106,15 +107,15 @@ public class Keyboard {
      * @param keys an array of string that represents keyboard keys in a row
      * @return an HBox of buttons
      */
-    private HBox createRow(String[] keys) {
+    private HBox createRow(String[] keyTexts) {
         HBox result = new HBox(5);
        
-        for (String key : keys) {
-            Button button = new Button(key);
+        for (String keyText : keyTexts) {
+            Button button = new Button(keyText);
             
             double width;
 
-            switch (key) {
+            switch (keyText) {
                 case "<----":
                     width = 80;
                     break;
@@ -139,7 +140,13 @@ public class Keyboard {
             }
 
             button.setPrefSize(width, 50);
-            result.getChildren().add(button);
+            
+            // key creation + adding to keys
+            KeyCode keyCode = KeyCode.getKeyCode(keyText);      
+            Key key = new Key(keyCode, button);                 
+            keys.add(key);                                      
+            
+            result.getChildren().add(button);                   
         }
         
         return result;    
