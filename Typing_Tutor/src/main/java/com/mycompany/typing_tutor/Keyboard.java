@@ -20,6 +20,8 @@ public class Keyboard {
     private ArrayList<Key> keys;
     
     public Keyboard() {
+        this.keys = new ArrayList<>();      // create empty list
+        
         this.keyboard = new VBox(5);     // create new VBox
         keyboard.setAlignment(Pos.CENTER);
         
