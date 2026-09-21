@@ -19,6 +19,12 @@ public class Key {
         this.keyCode = keyCode;
         this.button = button;
     }
-    
-    
+
+    public KeyCode getKeyCode() {
+        return keyCode;
+    }
+
+    public Button getButton() {
+        return button;
+    }
 }
