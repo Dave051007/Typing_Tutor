@@ -39,12 +39,39 @@ public class Keyboard {
         int row = 0;
         for (String key : keys) {
             Button button = new Button(key);
-            button.setPrefSize(50, 50);
             
+            double width;
+
+            switch (key) {
+                case "<----":
+                    width = 80;
+                    break;
+                case "SPACE":
+                    width = 300;
+                    break;
+                case "TAB":
+                    width = 80;
+                    break;
+                case "SHIFT":
+                    width = 110;
+                    break;
+                case "ENTER":
+                    width = 90;
+                    break;
+                case "CAPS LOCK":
+                    width = 100;
+                    break;
+                default:
+                    width = 50;
+                    break;
+            }
+
+            button.setPrefSize(width, 50);
             keyboard.add(button, column, row);
             
             column++;
             
+            // change rows
             if ((row == 0 && column == 14) || 
                 (row == 1 && column == 14) ||
                 (row == 2 && column == 13) ||
