@@ -90,8 +90,12 @@ public class Keyboard {
         String[] row5Keys = {"CTRL", "ALT", "CMD", "SPACE", "CMD", "ALT", "CTRL"};
         
         HBox row1 = createRow(row1Keys);
+        HBox row2 = createRow(row2Keys);
+        HBox row3 = createRow(row3Keys);
+        HBox row4 = createRow(row4Keys);
+        HBox row5 = createRow(row5Keys);
         
-        keyboard.getChildren().add(row1);
+        keyboard.getChildren().addAll(row1, row2, row3, row4, row5);
         
     }
     /**
