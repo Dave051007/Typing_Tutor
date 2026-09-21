@@ -84,7 +84,13 @@ public class Keyboard {
 //        }
       
         String[] row1Keys = {"`", "1\n!", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "<----"};
+        String[] row2Keys = {"TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"};
+        String[] row3Keys = {"CAPS LOCK","A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "ENTER"};
+        String[] row4Keys = {"SHIFT", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "SHIFT"};
+        String[] row5Keys = {"CTRL", "ALT", "CMD", "SPACE", "CMD", "ALT", "CTRL"};
+        
         HBox row1 = createRow(row1Keys);
+        
         keyboard.getChildren().add(row1);
         
     }
