@@ -14,4 +14,11 @@ import javafx.scene.input.KeyCode;
 public class Key {
     private KeyCode keyCode;
     private Button button;
+
+    public Key(KeyCode keyCode, Button button) {
+        this.keyCode = keyCode;
+        this.button = button;
+    }
+    
+    
 }
