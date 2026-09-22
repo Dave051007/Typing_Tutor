@@ -35,6 +35,10 @@ public class App extends Application {
             keyboard.keyPressed(event.getCode());
         });
         
+        scene.setOnKeyReleased(event -> {
+            keyboard.keyReleased(event.getCode());
+        });
+        
         stage.setScene(scene);
         stage.show();
     }
