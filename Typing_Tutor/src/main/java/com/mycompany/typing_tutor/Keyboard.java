@@ -86,6 +86,7 @@ public class Keyboard {
             }
 
             button.setPrefSize(width, 50);
+            button.setFocusTraversable(false);
             
             // key creation + adding to keys
             KeyCode keyCode = getKeyCode(keyText);      
