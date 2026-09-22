@@ -31,6 +31,10 @@ public class App extends Application {
 
         Scene scene = new Scene(root, 600, 600);
         
+        scene.setOnKeyPressed(event -> {
+            keyboard.keyPressed(event.getCode());
+        });
+        
         stage.setScene(scene);
         stage.show();
     }
