@@ -171,13 +171,26 @@ public class Keyboard {
     }
     
     /**
-     * Changes the background color of a Key button.
-     * @param keyCode the keyCode associated to the Key button.
-     */
+    * Highlights the button associated with the specified KeyCode
+    * by changing its background color to light gray.
+    * @param keyCode the KeyCode of the pressed key
+    */
     public void keyPressed(KeyCode keyCode) {
         for (Key key : keys) {
             if (key.getKeyCode() == keyCode) {
                 key.getButton().setStyle("-fx-background-color: lightgrey;");
+            }
+        }
+    }
+    
+    /**
+    * Removes the highlights of a button associated with the specified KeyCode.
+    * @param keyCode the KeyCode of the pressed key
+    */
+    public void keyReleased(KeyCode keyCode) {
+        for (Key key : keys) {
+            if (key.getKeyCode() == keyCode) {
+                key.getButton().setStyle("");
             }
         }
     }
