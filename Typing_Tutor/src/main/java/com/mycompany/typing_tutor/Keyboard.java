@@ -171,6 +171,18 @@ public class Keyboard {
     }
     
     /**
+     * Changes the background color of a Key button.
+     * @param keyCode the keyCode associated to the Key button.
+     */
+    public void keyPressed(KeyCode keyCode) {
+        for (Key key : keys) {
+            if (key.getKeyCode() == keyCode) {
+                key.getButton().setStyle("-fx-background-color: lightgrey;");
+            }
+        }
+    }
+    
+    /**
      * Returns a GridPane representing a keyboard.
      */
     public VBox getKeyboard() {
