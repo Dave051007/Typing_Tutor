@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
-    private String[] texts = {
+    private final String[] texts = {
         "Try typing this text. Do it as quickly and accurately as you can.",
         "Next type another line of input data.",
         " The quick brown fox jumps over the lazy dog.",
@@ -29,14 +29,20 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Keyboard keyboard = new Keyboard();
         BorderPane root = new BorderPane();
 
+        Keyboard keyboard = new Keyboard();
         StackPane virtualKeyboard = new StackPane();
         virtualKeyboard.getChildren().add(keyboard.getKeyboard());
+        root.setBottom(virtualKeyboard);
 
-        root.setCenter(virtualKeyboard);
-
+        TextField textDisplay = new TextField();
+        textDisplay.setEditable(false);             // make user unable to edit
+        textDisplay.setFocusTraversable(false);          // removes focus
+        textDisplay.setMouseTransparent(true);          // for ignoring mouse clicks and events
+        textDisplay.setPrefHeight(50);
+        root.setTop(textDisplay);
+        
         Scene scene = new Scene(root, 600, 600);
         
         scene.setOnKeyPressed(event -> {
