@@ -26,6 +26,8 @@ public class App extends Application {
         "Sympathizing would fix Quaker objectives.",
         " A large fawn jumped quickly over white zinc boxes.",
     };
+    
+    private final String errorMessage = "Function not available";
 
     @Override
     public void start(Stage stage) {
@@ -50,6 +52,9 @@ public class App extends Application {
          
         // reset button
         Button resetBtn = new Button("Reset");
+        
+        // message display label
+        Label label = new Label();
         
         Scene scene = new Scene(root, 600, 600);
         
