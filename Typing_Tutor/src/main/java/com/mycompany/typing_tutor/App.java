@@ -1,6 +1,7 @@
 package com.mycompany.typing_tutor;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,13 +32,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        BorderPane root = new BorderPane();
+        GridPane root = new GridPane();
+        root.setHgap(10);
+        root.setVgap(10);
+        root.setPadding(new Insets(10));
 
         // Keyboard
         Keyboard keyboard = new Keyboard();
         StackPane virtualKeyboard = new StackPane();
         virtualKeyboard.getChildren().add(keyboard.getKeyboard());
-        root.setBottom(virtualKeyboard);
+        root.add(virtualKeyboard, 0, 3);
 
         // display text
         TextField textDisplay = new TextField();
@@ -45,7 +49,7 @@ public class App extends Application {
         textDisplay.setFocusTraversable(false);          // removes focus
         textDisplay.setMouseTransparent(true);          // for ignoring mouse clicks and events
         textDisplay.setPrefHeight(50);
-        root.setTop(textDisplay);
+        root.add(textDisplay, 0, 0);
         
         // next button
         Button nextBtn = new Button("Next");
