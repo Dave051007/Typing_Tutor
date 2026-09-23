@@ -18,6 +18,14 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
+    private String[] texts = {
+        "Try typing this text. Do it as quickly and accurately as you can.",
+        "Next type another line of input data.",
+        " The quick brown fox jumps over the lazy dog.",
+        "Five big quacking zephyrs jolt my wax bed.",
+        "Sympathizing would fix Quaker objectives.",
+        " A large fawn jumped quickly over white zinc boxes.",
+    };
 
     @Override
     public void start(Stage stage) {
