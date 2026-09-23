@@ -31,17 +31,25 @@ public class App extends Application {
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
 
+        // Keyboard
         Keyboard keyboard = new Keyboard();
         StackPane virtualKeyboard = new StackPane();
         virtualKeyboard.getChildren().add(keyboard.getKeyboard());
         root.setBottom(virtualKeyboard);
 
+        // display text
         TextField textDisplay = new TextField();
         textDisplay.setEditable(false);             // make user unable to edit
         textDisplay.setFocusTraversable(false);          // removes focus
         textDisplay.setMouseTransparent(true);          // for ignoring mouse clicks and events
         textDisplay.setPrefHeight(50);
         root.setTop(textDisplay);
+        
+        // next button
+        Button nextBtn = new Button("Next");
+         
+        // reset button
+        Button resetBtn = new Button("Reset");
         
         Scene scene = new Scene(root, 600, 600);
         
