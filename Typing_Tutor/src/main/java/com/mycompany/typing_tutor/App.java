@@ -53,9 +53,13 @@ public class App extends Application {
         
         // next button
         Button nextBtn = new Button("Next");
+        nextBtn.setMinHeight(30);
+        nextBtn.setMinWidth(100);
          
         // reset button
         Button resetBtn = new Button("Reset");
+        resetBtn.setMinHeight(30);
+        resetBtn.setMinWidth(100);
         
         // message display label
         Label label = new Label();
