@@ -79,6 +79,17 @@ public class App extends Application {
         nextBtn.setMinHeight(30);
         nextBtn.setMinWidth(100);
         root.add(nextBtn, 1, 0);
+        
+        nextBtn.setOnAction(event -> {
+            if (count >= 6) {
+                errorLabel.setText("You have reached the limit of available texts, please reset");
+                return;
+            }
+            
+            count++;
+            countLabel.setText(count + " of 6 texts");
+            textDisplay.setText(texts[count - 1]);
+        });
          
         // reset button
         Button resetBtn = new Button("Reset");
