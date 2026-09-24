@@ -1,6 +1,7 @@
 package com.mycompany.typing_tutor;
 
 import javafx.application.Application;
+import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -58,14 +59,20 @@ public class App extends Application {
         textTyped.setMouseTransparent(true);
         root.add(textTyped, 0, 2);
         
+        // error message label
+        Label errorLabel = new Label();
+        root.add(errorLabel, 0, 1);
+        
         // next button
         Button nextBtn = new Button("Next");
+        nextBtn.setFocusTraversable(false);
         nextBtn.setMinHeight(30);
         nextBtn.setMinWidth(100);
         root.add(nextBtn, 1, 0);
          
         // reset button
         Button resetBtn = new Button("Reset");
+        resetBtn.setFocusTraversable(false);
         resetBtn.setMinHeight(30);
         resetBtn.setMinWidth(100);
         root.add(resetBtn, 1, 1);
@@ -73,7 +80,7 @@ public class App extends Application {
         // message display label
         Label label = new Label();
         
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 800, 500);
         
         scene.setOnKeyPressed(event -> {
             keyboard.keyPressed(event.getCode());
