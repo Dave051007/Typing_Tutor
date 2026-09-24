@@ -98,6 +98,13 @@ public class App extends Application {
         resetBtn.setMinWidth(100);
         root.add(resetBtn, 1, 1);
         
+        resetBtn.setOnAction(event -> {
+           count = 1;
+           errorLabel.setText("");
+           countLabel.setText(count + " of 6 texts");
+           textDisplay.setText(texts[count - 1]);
+        });
+        
         // message display label
         Label label = new Label();
         
