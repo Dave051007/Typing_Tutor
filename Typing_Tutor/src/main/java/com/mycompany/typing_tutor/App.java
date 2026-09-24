@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,6 +31,8 @@ public class App extends Application {
     };
     
     private final String errorMessage = "Function not available";
+    
+    private int count = 1;
 
     @Override
     public void start(Stage stage) {
@@ -42,7 +45,7 @@ public class App extends Application {
         Keyboard keyboard = new Keyboard();
         StackPane virtualKeyboard = new StackPane();
         virtualKeyboard.getChildren().add(keyboard.getKeyboard());
-        root.add(virtualKeyboard, 0, 3);
+        root.add(virtualKeyboard, 0, 4);
         
         // display text
         TextField textDisplay = new TextField();
@@ -57,11 +60,16 @@ public class App extends Application {
         textTyped.setFocusTraversable(false);
         textTyped.setEditable(false);
         textTyped.setMouseTransparent(true);
-        root.add(textTyped, 0, 2);
+        root.add(textTyped, 0, 3);
         
         // error message label
         Label errorLabel = new Label();
-        root.add(errorLabel, 0, 1);
+        root.add(errorLabel, 0, 2);
+        
+        // text count label
+        Label countLabel = new Label(count + " of 6 texts");
+        root.add(countLabel, 0, 1);
+        root.setValignment(countLabel, VPos.TOP);
         
         // next button
         Button nextBtn = new Button("Next");
