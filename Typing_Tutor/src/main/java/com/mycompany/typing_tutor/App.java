@@ -55,6 +55,8 @@ public class App extends Application {
         textDisplay.setPrefHeight(50);
         root.add(textDisplay, 0, 0);
         
+        textDisplay.setText(texts[count - 1]);
+        
         // typed texts
         TextField textTyped = new TextField();
         textTyped.setFocusTraversable(false);
