@@ -42,7 +42,7 @@ public class App extends Application {
         StackPane virtualKeyboard = new StackPane();
         virtualKeyboard.getChildren().add(keyboard.getKeyboard());
         root.add(virtualKeyboard, 0, 3);
-
+        
         // display text
         TextField textDisplay = new TextField();
         textDisplay.setEditable(false);             // make user unable to edit
@@ -50,6 +50,13 @@ public class App extends Application {
         textDisplay.setMouseTransparent(true);          // for ignoring mouse clicks and events
         textDisplay.setPrefHeight(50);
         root.add(textDisplay, 0, 0);
+        
+        // typed texts
+        TextField textTyped = new TextField();
+        textTyped.setFocusTraversable(false);
+        textTyped.setEditable(false);
+        textTyped.setMouseTransparent(true);
+        root.add(textTyped, 0, 2);
         
         // next button
         Button nextBtn = new Button("Next");
@@ -66,7 +73,7 @@ public class App extends Application {
         // message display label
         Label label = new Label();
         
-        Scene scene = new Scene(root, 600, 600);
+        Scene scene = new Scene(root, 800, 600);
         
         scene.setOnKeyPressed(event -> {
             keyboard.keyPressed(event.getCode());
