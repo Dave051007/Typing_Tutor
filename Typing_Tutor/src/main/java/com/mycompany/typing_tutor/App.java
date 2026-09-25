@@ -148,9 +148,15 @@ public class App extends Application {
                 return;
             }
             
-            if (typedPosition < textDisplay.getText().length()) {
+            String typedText = event.getText();
+            
+            if (typedText == null || typedText.isEmpty()) {
+                return;
+            }
+            
+            if (typedPosition < typedText.length()) {
                 char correctLetter = textDisplay.getText().charAt(typedPosition);
-                char typedLetter = event.getText().charAt(0);
+                char typedLetter = typedText.charAt(0);
 
                 if (typedLetter == correctLetter) {            // compare text typed and correct letter
                     correctKeyStrokes++;
