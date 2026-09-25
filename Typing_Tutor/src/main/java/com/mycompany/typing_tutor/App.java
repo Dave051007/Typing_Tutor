@@ -65,7 +65,6 @@ public class App extends Application {
         
         // typed texts
         TextField textTyped = new TextField();
-        textTyped.setFocusTraversable(false);
         root.add(textTyped, 0, 3);
         
         // error message label
@@ -140,7 +139,9 @@ public class App extends Application {
             }
             
             char correctLetter = textDisplay.getText().charAt(typedPosition);
-            if (event.getText().charAt(0) == correctLetter) {            // compare text typed and correct letter
+            char typedLetter = event.getText().charAt(0);
+            
+            if (typedLetter == correctLetter) {            // compare text typed and correct letter
                 correctKeyStrokes++;
                 correct.setText("Correct: " + correctKeyStrokes);
             } else {
