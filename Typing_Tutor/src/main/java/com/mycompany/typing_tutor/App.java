@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -60,8 +61,6 @@ public class App extends Application {
         // typed texts
         TextField textTyped = new TextField();
         textTyped.setFocusTraversable(false);
-        textTyped.setEditable(false);
-        textTyped.setMouseTransparent(true);
         root.add(textTyped, 0, 3);
         
         // error message label
@@ -110,11 +109,11 @@ public class App extends Application {
         
         Scene scene = new Scene(root, 800, 500);
         
-        scene.setOnKeyPressed(event -> {
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {       // event filter: get event during capture phase
             keyboard.keyPressed(event.getCode());
         });
         
-        scene.setOnKeyReleased(event -> {
+        scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
             keyboard.keyReleased(event.getCode());
         });
         
