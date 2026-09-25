@@ -138,18 +138,24 @@ public class App extends Application {
                 return;
             }
             
-            char correctLetter = textDisplay.getText().charAt(typedPosition);
-            char typedLetter = event.getText().charAt(0);
-            
-            if (typedLetter == correctLetter) {            // compare text typed and correct letter
-                correctKeyStrokes++;
-                correct.setText("Correct: " + correctKeyStrokes);
+            if (typedPosition < textDisplay.getText().length()) {
+                char correctLetter = textDisplay.getText().charAt(typedPosition);
+                char typedLetter = event.getText().charAt(0);
+
+                if (typedLetter == correctLetter) {            // compare text typed and correct letter
+                    correctKeyStrokes++;
+                    correct.setText("Correct: " + correctKeyStrokes);
+                } else {
+                    incorrectKeyStrokes++;
+                    incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+                }   
+                
+                typedPosition++;
             } else {
+                errorLabel.setText("Proceed to the next text.");
                 incorrectKeyStrokes++;
                 incorrect.setText("Incorrect: " + incorrectKeyStrokes);
             }
-            
-            typedPosition++;
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
