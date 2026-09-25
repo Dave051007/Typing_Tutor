@@ -113,6 +113,11 @@ public class App extends Application {
         
         scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {       // event filter: get event during capture phase
             keyboard.keyPressed(event.getCode());
+            
+            errorLabel.setText("");                     // clears after pressing available key
+            if (isUnavailableKey(event)) {
+                errorLabel.setText(errorMessage);
+            }
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
