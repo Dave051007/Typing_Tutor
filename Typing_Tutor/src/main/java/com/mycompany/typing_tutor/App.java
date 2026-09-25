@@ -94,6 +94,7 @@ public class App extends Application {
             textTyped.clear();
             countLabel.setText(count + " of 6 texts");
             textDisplay.setText(texts[count - 1]);
+            typedPosition = 0;
         });
          
         // reset button
@@ -109,6 +110,8 @@ public class App extends Application {
            errorLabel.setText("");
            countLabel.setText(count + " of 6 texts");
            textDisplay.setText(texts[count - 1]);
+           typedPosition = 0;
+
         });
         
         // correct and incorrect number of keystrokes display label
