@@ -122,6 +122,54 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    
+    /**
+    * Checks if a key is unavailable.
+    * @param event the key event containing the key that was pressed
+    * @return true if the key is unavailable, false otherwise
+    */
+    private boolean isUnavailableKey(KeyEvent event) {
+    switch (event.getCode()) {
+        case F1:
+        case F2:
+        case F3:
+        case F4:
+        case F5:
+        case F6:
+        case F7:
+        case F8:
+        case F9:
+        case F10:
+        case F11:
+        case F12:
+        case INSERT:
+        case HOME:
+        case PAGE_UP:
+        case PAGE_DOWN:
+        case END:
+        case TAB:
+        case ALT:
+        case NUMPAD0:
+        case NUMPAD1:
+        case NUMPAD2:
+        case NUMPAD3:
+        case NUMPAD4:
+        case NUMPAD5:
+        case NUMPAD6:
+        case NUMPAD7:
+        case NUMPAD8:
+        case NUMPAD9:
+        case ADD:
+        case SUBTRACT:
+        case MULTIPLY:
+        case DIVIDE:
+        case DECIMAL:
+            return true;
+
+        default:
+            return false;
+    }
+}
 
     public static void main(String[] args) {
         launch();
