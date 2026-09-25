@@ -86,6 +86,7 @@ public class App extends Application {
             }
             
             count++;
+            textTyped.clear();
             countLabel.setText(count + " of 6 texts");
             textDisplay.setText(texts[count - 1]);
         });
@@ -99,6 +100,7 @@ public class App extends Application {
         
         resetBtn.setOnAction(event -> {
            count = 1;
+           textTyped.clear();
            errorLabel.setText("");
            countLabel.setText(count + " of 6 texts");
            textDisplay.setText(texts[count - 1]);
