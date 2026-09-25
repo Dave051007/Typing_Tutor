@@ -185,6 +185,7 @@ public class App extends Application {
         case END:
         case TAB:
         case ALT:
+        case CONTROL:    
         case NUMPAD0:
         case NUMPAD1:
         case NUMPAD2:
