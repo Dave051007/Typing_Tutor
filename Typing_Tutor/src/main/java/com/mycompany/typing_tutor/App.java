@@ -37,6 +37,7 @@ public class App extends Application {
 
     private int correctKeyStrokes = 0;
     private int incorrectKeyStrokes = 0;
+    private int typedPosition = 0;
             
     @Override
     public void start(Stage stage) {
@@ -126,6 +127,8 @@ public class App extends Application {
             if (isUnavailableKey(event)) {
                 errorLabel.setText(errorMessage);
             }
+            
+            
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
