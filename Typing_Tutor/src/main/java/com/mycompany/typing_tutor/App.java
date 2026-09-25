@@ -35,6 +35,9 @@ public class App extends Application {
     
     private int count = 1;
 
+    private int correctKeyStrokes = 0;
+    private int incorrectKeyStrokes = 0;
+            
     @Override
     public void start(Stage stage) {
         GridPane root = new GridPane();
@@ -66,6 +69,7 @@ public class App extends Application {
         // error message label
         Label errorLabel = new Label();
         root.add(errorLabel, 0, 2);
+        errorLabel.setStyle("-fx-text-fill: red;");
         
         // text count label
         Label countLabel = new Label(count + " of 6 texts");
