@@ -110,8 +110,12 @@ public class App extends Application {
            textDisplay.setText(texts[count - 1]);
         });
         
-        // message display label
-        Label label = new Label();
+        // correct and incorrect number of keystrokes display label
+        Label correct = new Label("Correct: ");
+        root.add(correct, 1, 3);
+        Label incorrect = new Label("Incorrect: ");
+        root.add(incorrect, 1, 4);
+        root.setValignment(incorrect, VPos.TOP);
         
         Scene scene = new Scene(root, 800, 500);
         
