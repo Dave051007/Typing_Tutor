@@ -84,6 +84,13 @@ public class App extends Application {
         nextBtn.setMinWidth(100);
         root.add(nextBtn, 1, 0);
         
+        // correct and incorrect number of keystrokes display label
+        Label correct = new Label("Correct: ");
+        root.add(correct, 1, 3);
+        Label incorrect = new Label("Incorrect: ");
+        root.add(incorrect, 1, 4);
+        root.setValignment(incorrect, VPos.TOP);
+        
         nextBtn.setOnAction(event -> {
             if (count >= 6) {
                 errorLabel.setText("You have reached the limit of available texts, please reset");
@@ -110,16 +117,13 @@ public class App extends Application {
            errorLabel.setText("");
            countLabel.setText(count + " of 6 texts");
            textDisplay.setText(texts[count - 1]);
+           
            typedPosition = 0;
-
+           incorrectKeyStrokes = 0;
+           correctKeyStrokes = 0;
+           correct.setText("Correct: ");
+           incorrect.setText("Incorrect: ");
         });
-        
-        // correct and incorrect number of keystrokes display label
-        Label correct = new Label("Correct: ");
-        root.add(correct, 1, 3);
-        Label incorrect = new Label("Incorrect: ");
-        root.add(incorrect, 1, 4);
-        root.setValignment(incorrect, VPos.TOP);
         
         Scene scene = new Scene(root, 800, 500);
         
