@@ -99,6 +99,7 @@ public class App extends Application {
             
             count++;
             textTyped.clear();
+            textTyped.setEditable(true);
             countLabel.setText(count + " of 6 texts");
             textDisplay.setText(texts[count - 1]);
             typedPosition = 0;
@@ -114,6 +115,7 @@ public class App extends Application {
         resetBtn.setOnAction(event -> {
            count = 1;
            textTyped.clear();
+           textTyped.setEditable(true);
            errorLabel.setText("");
            countLabel.setText(count + " of 6 texts");
            textDisplay.setText(texts[count - 1]);
@@ -131,9 +133,10 @@ public class App extends Application {
             keyboard.keyPressed(event.getCode());
             
             errorLabel.setText("");                     // clears after pressing available key
+            
             if (isUnavailableKey(event)) {
                 errorLabel.setText(errorMessage);
-                
+                event.consume();                              // prevent unavailable keys from performing
                 return;
             }
             
@@ -158,10 +161,13 @@ public class App extends Application {
                 }   
                 
                 typedPosition++;
+                
             } else {
-                errorLabel.setText("Proceed to the next text.");
-                incorrectKeyStrokes++;
-                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+//                errorLabel.setText("Proceed to the next text.");
+//                incorrectKeyStrokes++;
+//                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+                textTyped.setEditable(false);
+                event.consume();
             }
         });
         
