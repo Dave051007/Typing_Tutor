@@ -26,10 +26,10 @@ public class App extends Application {
     private final String[] texts = {
         "Try typing this text. Do it as quickly and accurately as you can.",
         "Next type another line of input data.",
-        " The quick brown fox jumps over the lazy dog.",
+        "The quick brown fox jumps over the lazy dog.",
         "Five big quacking zephyrs jolt my wax bed.",
         "Sympathizing would fix Quaker objectives.",
-        " A large fawn jumped quickly over white zinc boxes.",
+        "A large fawn jumped quickly over white zinc boxes.",
     };
     
     private final String errorMessage = "Function not available";
