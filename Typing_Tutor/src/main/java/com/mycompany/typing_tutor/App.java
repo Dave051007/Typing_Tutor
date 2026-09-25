@@ -128,7 +128,16 @@ public class App extends Application {
                 errorLabel.setText(errorMessage);
             }
             
+            char correctLetter = textDisplay.getText().charAt(typedPosition);
+            if (event.getText().charAt(0) == correctLetter) {            // compare text typed and correct letter
+                correctKeyStrokes++;
+                correct.setText("Correct: " + correctKeyStrokes);
+            } else {
+                incorrectKeyStrokes++;
+                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+            }
             
+            typedPosition++;
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
