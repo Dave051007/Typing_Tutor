@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -126,6 +127,16 @@ public class App extends Application {
             errorLabel.setText("");                     // clears after pressing available key
             if (isUnavailableKey(event)) {
                 errorLabel.setText(errorMessage);
+                
+                return;
+            }
+            
+            if (event.getCode() == KeyCode.BACK_SPACE) {
+                if (typedPosition > 0) {
+                    typedPosition--;
+                }
+                
+                return;
             }
             
             char correctLetter = textDisplay.getText().charAt(typedPosition);
