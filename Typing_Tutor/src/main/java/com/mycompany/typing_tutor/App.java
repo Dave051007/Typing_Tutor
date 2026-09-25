@@ -154,8 +154,17 @@ public class App extends Application {
                 return;
             }
             
-            if (typedPosition < typedText.length()) {
-                char correctLetter = textDisplay.getText().charAt(typedPosition);
+            // prevent typing when text is completed
+            if (typedPosition >= textDisplay.getText().length()) {          
+                textTyped.setEditable(false);
+                
+                errorLabel.setText("Text complete. Press Next to continue.");
+                
+                event.consume();
+                return;
+            }
+            
+            char correctLetter = textDisplay.getText().charAt(typedPosition);
                 char typedLetter = typedText.charAt(0);
 
                 if (typedLetter == correctLetter) {            // compare text typed and correct letter
@@ -167,14 +176,28 @@ public class App extends Application {
                 }   
                 
                 typedPosition++;
-                
-            } else {
-//                errorLabel.setText("Proceed to the next text.");
-//                incorrectKeyStrokes++;
-//                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
-                textTyped.setEditable(false);
-                event.consume();
-            }
+            
+//            if (typedPosition < typedText.length()) {
+//                char correctLetter = textDisplay.getText().charAt(typedPosition);
+//                char typedLetter = typedText.charAt(0);
+//
+//                if (typedLetter == correctLetter) {            // compare text typed and correct letter
+//                    correctKeyStrokes++;
+//                    correct.setText("Correct: " + correctKeyStrokes);
+//                } else {
+//                    incorrectKeyStrokes++;
+//                    incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+//                }   
+//                
+//                typedPosition++;
+//                
+//            } else {
+////                errorLabel.setText("Proceed to the next text.");
+////                incorrectKeyStrokes++;
+////                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+//                textTyped.setEditable(false);
+//                event.consume();
+//            }
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
