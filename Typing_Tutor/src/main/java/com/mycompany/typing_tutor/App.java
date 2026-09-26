@@ -91,6 +91,9 @@ public class App extends Application {
         root.add(incorrect, 1, 4);
         root.setValignment(incorrect, VPos.TOP);
         
+        Label accuracy = new Label("Accuracy: 100%");
+        root.add(accuracy, 1, 5);
+        
         nextBtn.setOnAction(event -> {
             if (count >= 6) {
                 errorLabel.setText("You have reached the limit of available texts, please reset");
