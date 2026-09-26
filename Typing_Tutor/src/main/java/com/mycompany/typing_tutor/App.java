@@ -40,6 +40,8 @@ public class App extends Application {
     private int incorrectKeyStrokes = 0;
     private int typedPosition = 0;
             
+    private Label accuracyLabel = new Label("Accuracy: 100%");
+    
     @Override
     public void start(Stage stage) {
         GridPane root = new GridPane();
@@ -91,8 +93,8 @@ public class App extends Application {
         root.add(incorrect, 1, 4);
         root.setValignment(incorrect, VPos.TOP);
         
-        Label accuracy = new Label("Accuracy: 100%");
-        root.add(accuracy, 1, 5);
+        // accuracy label
+        root.add(accuracyLabel, 1, 5);
         
         nextBtn.setOnAction(event -> {
             if (count >= 6) {
@@ -268,7 +270,7 @@ public class App extends Application {
             return false;
         }
     }
-
+    
     public static void main(String[] args) {
         launch();
     }
