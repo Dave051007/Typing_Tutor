@@ -151,7 +151,7 @@ public class App extends Application {
             
             // prevents ctrl + backspace.
             if (event.isControlDown()) {
-                errorLabel.setText("Ctrl + Backspace is unavailable");
+                errorLabel.setText("Ctrl combinations are unavailable");
                 
                 event.consume();
                 return;
