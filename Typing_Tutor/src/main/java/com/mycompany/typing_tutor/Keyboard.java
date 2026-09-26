@@ -88,6 +88,12 @@ public class Keyboard {
             button.setPrefSize(width, 50);
             button.setFocusTraversable(false);
             
+            button.setStyle(
+                "-fx-background-radius: 4;" +
+                "-fx-border-radius: 4;" +
+                "-fx-font-weight: bold;"
+            );
+            
             // key creation + adding to keys
             KeyCode keyCode = getKeyCode(keyText);      
             Key key = new Key(keyCode, button);                 
@@ -191,7 +197,10 @@ public class Keyboard {
     public void keyReleased(KeyCode keyCode) {
         for (Key key : keys) {
             if (key.getKeyCode() == keyCode) {
-                key.getButton().setStyle("");
+                key.getButton().setStyle((
+                "-fx-background-radius: 4;" +
+                "-fx-border-radius: 4;" +
+                "-fx-font-weight: bold;"));
             }
         }
     }

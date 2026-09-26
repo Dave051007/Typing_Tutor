@@ -40,7 +40,7 @@ public class App extends Application {
     private int incorrectKeyStrokes = 0;
     private int typedPosition = 0;
             
-    private Label accuracyLabel = new Label("Accuracy: 100%");
+    private Label accuracyLabel = new Label("Accuracy: 100.0%");
     
     @Override
     public void start(Stage stage) {
@@ -63,21 +63,40 @@ public class App extends Application {
         textDisplay.setPrefHeight(50);
         root.add(textDisplay, 0, 0);
         
+        textDisplay.setStyle(
+            "-fx-font-size: 18px;" +
+            "-fx-font-weight: bold;"
+        );
+        
         textDisplay.setText(texts[count - 1]);
         
         // typed texts
         TextField textTyped = new TextField();
         root.add(textTyped, 0, 3);
         
+        textTyped.setStyle(
+            "-fx-font-size: 18px;" +
+            "-fx-border-radius: 5;"
+        );
+        
         // error message label
         Label errorLabel = new Label();
         root.add(errorLabel, 0, 2);
-        errorLabel.setStyle("-fx-text-fill: red;");
+        
+        errorLabel.setStyle(
+            "-fx-font-weight: bold;" +
+            "-fx-text-fill: red;"
+        );
         
         // text count label
         Label countLabel = new Label(count + " of 6 texts");
         root.add(countLabel, 0, 1);
         root.setValignment(countLabel, VPos.TOP);
+        
+        countLabel.setStyle(
+            "-fx-font-size: 14px;" +
+            "-fx-text-fill: #666666;"
+        );
         
         // next button
         Button nextBtn = new Button("Next");
@@ -92,9 +111,28 @@ public class App extends Application {
         Label incorrect = new Label("Incorrect: ");
         root.add(incorrect, 1, 4);
         root.setValignment(incorrect, VPos.TOP);
-        
         // accuracy label
         root.add(accuracyLabel, 1, 5);
+        
+        correct.setStyle(
+            "-fx-font-size: 14px;" +
+            "-fx-font-weight: bold;"
+        );
+
+        incorrect.setStyle(
+            "-fx-font-size: 14px;" +
+            "-fx-font-weight: bold;"
+        );
+
+        accuracyLabel.setStyle(
+            "-fx-font-size: 16px;" +
+            "-fx-font-weight: bold;"
+        );
+        
+        nextBtn.setStyle(
+        "-fx-font-weight: bold;" +
+        "-fx-background-radius: 5;"
+        );
         
         nextBtn.setOnAction(event -> {
             if (count >= 6) {
@@ -121,8 +159,14 @@ public class App extends Application {
         resetBtn.setMinWidth(100);
         root.add(resetBtn, 1, 1);
         
+        resetBtn.setStyle(
+        "-fx-font-weight: bold;" +
+        "-fx-background-radius: 5;"
+    );
+        
         resetBtn.setOnAction(event -> {
            errorLabel.setText("");
+           accuracyLabel.setText("Accuracy 100.0%");
            
            count = 1;
            
@@ -140,7 +184,7 @@ public class App extends Application {
            incorrect.setText("Incorrect: ");
         });
         
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root, 1000, 500);
         
         scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {       // event filter: get event during capture phase
             keyboard.keyPressed(event.getCode());
@@ -220,6 +264,7 @@ public class App extends Application {
         });
         
         stage.setScene(scene);
+        stage.setTitle("Typing Tutor");
         stage.show();
     }
     
