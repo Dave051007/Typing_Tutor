@@ -157,12 +157,20 @@ public class App extends Application {
                 return;
             }
              
+            // Back space
             if (event.getCode() == KeyCode.BACK_SPACE) {
                 if (typedPosition > 0) {
                     typedPosition--;
                 }
                 
                 return;
+            }
+            
+            // prevent shift from producing character
+            if (isShiftPressed(event)) {
+                if (event.getCode() == KeyCode.SHIFT) {
+                    return;
+                }
             }
             
             String typedText = event.getText();
@@ -182,17 +190,17 @@ public class App extends Application {
             }
             
             char correctLetter = textDisplay.getText().charAt(typedPosition);
-                char typedLetter = typedText.charAt(0);
+            char typedLetter = typedText.charAt(0);
 
-                if (typedLetter == correctLetter) {            // compare text typed and correct letter
-                    correctKeyStrokes++;
-                    correct.setText("Correct: " + correctKeyStrokes);
-                } else {
-                    incorrectKeyStrokes++;
-                    incorrect.setText("Incorrect: " + incorrectKeyStrokes);
-                }   
-                
-                typedPosition++;
+            if (typedLetter == correctLetter) {            // compare text typed and correct letter
+                correctKeyStrokes++;
+                correct.setText("Correct: " + correctKeyStrokes);
+            } else {
+                incorrectKeyStrokes++;
+                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
+            }   
+
+            typedPosition++;
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
@@ -250,11 +258,19 @@ public class App extends Application {
 
         default:
             return false;
+        }
     }
-}
 
     public static void main(String[] args) {
         launch();
     }
-
+    
+    /**
+     * Checks if shift is pressed
+     * @param event the event being checked
+     * @return true if shift is pressed, else false
+     */
+    private boolean isShiftPressed(KeyEvent event) {
+        return event.isShiftDown();
+    }
 }
