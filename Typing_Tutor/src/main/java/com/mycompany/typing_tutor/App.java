@@ -97,9 +97,13 @@ public class App extends Application {
                 return;
             }
             
+            errorLabel.setText("");
+            
             count++;
+            
             textTyped.clear();
             textTyped.setEditable(true);
+            
             countLabel.setText(count + " of 6 texts");
             textDisplay.setText(texts[count - 1]);
             typedPosition = 0;
@@ -113,16 +117,20 @@ public class App extends Application {
         root.add(resetBtn, 1, 1);
         
         resetBtn.setOnAction(event -> {
+           errorLabel.setText("");
+           
            count = 1;
+           
            textTyped.clear();
            textTyped.setEditable(true);
-           errorLabel.setText("");
+           
            countLabel.setText(count + " of 6 texts");
            textDisplay.setText(texts[count - 1]);
            
            typedPosition = 0;
            incorrectKeyStrokes = 0;
            correctKeyStrokes = 0;
+           
            correct.setText("Correct: ");
            incorrect.setText("Incorrect: ");
         });
@@ -133,13 +141,22 @@ public class App extends Application {
             keyboard.keyPressed(event.getCode());
             
             errorLabel.setText("");                     // clears after pressing available key
-            
+
             if (isUnavailableKey(event)) {
                 errorLabel.setText(errorMessage);
+                
                 event.consume();                              // prevent unavailable keys from performing
                 return;
             }
             
+            // prevents ctrl + backspace.
+            if (event.isControlDown()) {
+                errorLabel.setText("Ctrl + Backspace is unavailable");
+                
+                event.consume();
+                return;
+            }
+             
             if (event.getCode() == KeyCode.BACK_SPACE) {
                 if (typedPosition > 0) {
                     typedPosition--;
@@ -176,28 +193,6 @@ public class App extends Application {
                 }   
                 
                 typedPosition++;
-            
-//            if (typedPosition < typedText.length()) {
-//                char correctLetter = textDisplay.getText().charAt(typedPosition);
-//                char typedLetter = typedText.charAt(0);
-//
-//                if (typedLetter == correctLetter) {            // compare text typed and correct letter
-//                    correctKeyStrokes++;
-//                    correct.setText("Correct: " + correctKeyStrokes);
-//                } else {
-//                    incorrectKeyStrokes++;
-//                    incorrect.setText("Incorrect: " + incorrectKeyStrokes);
-//                }   
-//                
-//                typedPosition++;
-//                
-//            } else {
-////                errorLabel.setText("Proceed to the next text.");
-////                incorrectKeyStrokes++;
-////                incorrect.setText("Incorrect: " + incorrectKeyStrokes);
-//                textTyped.setEditable(false);
-//                event.consume();
-//            }
         });
         
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
