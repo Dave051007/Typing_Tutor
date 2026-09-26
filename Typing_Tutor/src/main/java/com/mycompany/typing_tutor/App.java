@@ -209,6 +209,8 @@ public class App extends Application {
                 incorrectKeyStrokes++;
                 incorrect.setText("Incorrect: " + incorrectKeyStrokes);
             }   
+            
+            updateAccuracy();
 
             typedPosition++;
         });
@@ -282,5 +284,22 @@ public class App extends Application {
      */
     private boolean isShiftPressed(KeyEvent event) {
         return event.isShiftDown();
+    }
+    
+    /**
+     * Calculates the typing accuracy based on the number of correct and incorrect keystrokes.
+     */
+    private void updateAccuracy() {
+        int totalKeyStrokes = correctKeyStrokes + incorrectKeyStrokes;
+
+        if (totalKeyStrokes == 0) {
+            accuracyLabel.setText("Accuracy: 100%");
+            return;
+        }
+
+        double accuracyPercentage = ((double) correctKeyStrokes / totalKeyStrokes) * 100;
+
+        double roundedAccuracy = Math.round(accuracyPercentage * 10.0) / 10.0;
+        accuracyLabel.setText("Accuracy: " + roundedAccuracy + "%");
     }
 }
