@@ -191,6 +191,11 @@ public class App extends Application {
             
             char correctLetter = textDisplay.getText().charAt(typedPosition);
             char typedLetter = typedText.charAt(0);
+            
+            // handles shift + letter
+             if (isShiftPressed(event)) {
+                typedLetter = Character.toUpperCase(typedLetter);
+            }
 
             if (typedLetter == correctLetter) {            // compare text typed and correct letter
                 correctKeyStrokes++;
