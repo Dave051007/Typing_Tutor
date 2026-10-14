@@ -216,10 +216,11 @@ public class App extends Application {
             }
             
             // prevent shift from producing character
-            if (event.getCode() == KeyCode.SHIFT) {
-                return;
+            if (isShiftPressed(event)) {
+                if (event.getCode() == KeyCode.SHIFT) {
+                    return;
+                }
             }
-            
             
             String typedText = event.getText();
             
@@ -241,7 +242,7 @@ public class App extends Application {
             char typedLetter = typedText.charAt(0);
             
             // handles shift + letter
-             if (event.getCode() == KeyCode.SHIFT) {
+             if (isShiftPressed(event)) {
                 typedLetter = Character.toUpperCase(typedLetter);
             }
 
@@ -319,6 +320,15 @@ public class App extends Application {
     
     public static void main(String[] args) {
         launch();
+    }
+    
+    /**
+     * Checks if shift is pressed
+     * @param event the event being checked
+     * @return true if shift is pressed, else false
+     */
+    private boolean isShiftPressed(KeyEvent event) {
+        return event.isShiftDown();
     }
     
     /**
